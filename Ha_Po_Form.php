@@ -1,3 +1,36 @@
+<?php
+require 'assets/PHPMailer.php';
+require 'assets/SMTP.php';
+require 'assets/Exception.php';
+
+use PHPMAILER\PHPMAILER\PHPMAILER;
+use PHPMAILER\PHPMAILER\SMTP;
+use PHPMAILER\PHPMAILER\Exception;
+
+$mail = new PHPMailer();
+$mail->isSMTP();
+$mail->Host = "smtp.gmail.com"; // je suis censée mettre une adresse mais je n'ai pas compris laquelle
+$mail->SMTPAuth = "true";
+$mail->SMTPSecure = "tls";
+$mail->Port = "587"; // ????
+$mail->Username = "evelynecolacogarcia1988@gmail.com"; // je dois mettre une adresse encore une fois 
+$mail->Password = "SimplePassword"; // mot de passe 
+$mail->Subject = "Test Email Using PHPMailer";
+$mail->setFrom("evelynecolacogarcia1988@gmail.com");//une adresss mail entre les parenthèses
+$mail->Body = "This is plain text email body";
+$mail->addAddress("");
+if ($mail->Send() ){
+  echo "Email Sent !";
+}else{
+  echo "Error..!";
+}
+$mail->smtpClose();
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
